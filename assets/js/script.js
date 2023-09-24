@@ -2,7 +2,17 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  // array to store each hourly event
   var hourlyEvents = {};
+  // generate hour blocks
+    for (var hour = 0; hour < 12; hour++) {
+        var currentHour = dayjs().hour(hour);
+        var hourFormatted = currentHour.format ('h A');
+
+        //create hour blocks
+         var hourRow = $('div').addClass('row time-block');
+         console.log (hourRow);
+    }
   // TODO: Add a listener for click events on the save button. 
   // This code should use the id in the containing time-block as a key to save the user input in local storage. 
   // HINT: What does `this` reference in the click listener function? 
@@ -13,8 +23,7 @@ $(function () {
         localStorage.setItem(hourFormatted, eventText);
       }
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. 
+  // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
   // HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes?
   // How can Day.js be used to get the current hour in 24-hour time?
   //
