@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function workdayscheduler() {
+$(function () {
     // TODO: Add code to display the current date in the header of the page.
     function updateCurrentDate() {
       var currentDate = dayjs().format('MMMM DD, YYYY');
@@ -13,7 +13,7 @@ $(function workdayscheduler() {
     var hourlyEvents = [];
 
   // generate hour blocks
-      for (var hour = 0; hour < hourlyEvents; hour++) {
+      for (var hour = 9; hour <= 17; hour++) {
           var currentHour = dayjs().hour(hour);
           var hourFormatted = currentHour.format ('h A');
 
@@ -33,7 +33,7 @@ $(function workdayscheduler() {
           saveButton.on('click', function () {
             var eventInfo = $(this).siblings('.description').val();
             var hourFormatted = $(this).parent().attr('id');
-            localStorage.setItem('hour' + hourFormatted, eventInfo);
+            localStorage.setItem('hour-' + hourFormatted, eventInfo);
           });
 
           hourRow.append(hourLabel, eventInput, saveButton);
@@ -60,6 +60,4 @@ $(function workdayscheduler() {
           }
 
         $('.container-lg').append(hourRow);
-      }
-    );
-workdayscheduler();
+  });
