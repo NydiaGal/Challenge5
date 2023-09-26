@@ -3,11 +3,11 @@
 // in the html.
 $(function () {
   // TODO: Add code to display the current date in the header of the page.
-  function updateCurrentDate() {
-    var currentDate = dayjs().format('MMMM DD, YYYY');
-    $('#currentDate').text(currentDate);
+  function updatecurrentDay() {
+    var currentDay = dayjs().format('MMMM DD, YYYY');
+    $('#currentDay').text(currentDay);
 }
-  updateCurrentDate();
+  updatecurrentDay();
   var container = $('.container-lg');
 // generate hour blocks
     for (var hour = 9; hour <= 17; hour++) {
@@ -35,9 +35,9 @@ $(function () {
 // HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes?
 // How can Day.js be used to get the current hour in 24-hour time?
         var currentHourOfDay = dayjs().hour();
-          if (hour < currentHourOfDay) {
+          if (hour < hourFormatted) {
             hourRow.addClass('past');
-          } else if (hour === currentHourOfDay) {
+          } else if (hour === hourFormatted) {
             hourRow.addClass('present');
           } else {
             hourRow.addClass('future');
